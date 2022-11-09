@@ -1,0 +1,63 @@
+$backColor: rgb(40, 40, 40);
+$backDarkColor: rgb(25, 25, 25);
+.layoutContainer {
+  min-height: 100vh;
+  width: 100%;
+  background: $backDarkColor;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headerContainer {
+  min-height: 3rem;
+  width: 100%;
+  background: $backColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.childContainer {
+  min-height: 2.7rem;
+  // background:rgb(155, 155, 66);
+  width: 85%;
+}
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+input,
+button {
+  // background:yellowgreen;
+  text-decoration: none;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+}
+input {
+  width: 65%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+button {
+  width: 25%;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color:$backColor;
+  color: whitesmoke;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover{
+    background-color:$backDarkColor;
+
+}
+.searchContainer {
+  width: 50%;
+}
+h3{
+    color:whitesmoke
+}
