@@ -1,13 +1,12 @@
 import { userActions } from "./index";
-import { loginService } from "./services";
+import { getUsersService } from "./services";
 
-export const loginAction = (data:any) => async (dispatch:any) => {
+export const getAllUsersAction = (data:any) => async (dispatch:any) => {
     dispatch(userActions.setIsFetching(true));
     try {
-        const res = await loginService(data);
+        const res = await getUsersService(data);
         if(res?.status===200){
-            dispatch(userActions.setIsFetching(false));
-            dispatch(userActions.login(res.data));
+            dispatch(userActions.setUsers(res.data));
         }
         dispatch(userActions.setIsFetching(false));
     } catch (error) {
