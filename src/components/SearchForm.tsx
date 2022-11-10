@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styles from "./index.module.scss";
 
+import { useSelector, useDispatch } from "react-redux";
 const SearchComponent = (props: any) => {
+  const dispatch = useDispatch();
   const [searchText, setSearchText] = useState();
   return (
     <div className={styles.searchContainer}>

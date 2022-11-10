@@ -20,6 +20,7 @@ $backDarkColor: rgb(25, 25, 25);
 .childContainer {
   min-height: 2.7rem;
   // background:rgb(155, 155, 66);
+  padding-top: 1.5rem;
   width: 85%;
 }
 .centerContainer {
@@ -28,7 +29,7 @@ $backDarkColor: rgb(25, 25, 25);
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1rem;
 }
 input,
 button {
@@ -46,18 +47,40 @@ button {
   width: 25%;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  background-color:$backColor;
+  background-color: $backColor;
   color: whitesmoke;
   font-weight: 600;
   cursor: pointer;
 }
-button:hover{
-    background-color:$backDarkColor;
-
+button:hover {
+  background-color: $backDarkColor;
 }
 .searchContainer {
   width: 50%;
 }
-h3{
-    color:whitesmoke
+h3 {
+  color: whitesmoke;
+}
+.profileCard{
+    width:15rem;
+    height:5rem;
+    background:whitesmoke;
+    flex-direction: row !important;
+    gap: 1 !important;
+    border-radius: 0.7rem !important;
+    box-shadow: 2px 3px rgb(95, 120, 101);
+}
+.avatalCard{
+    width:4rem;
+    height:4rem;
+    background:yellowgreen;
+    border-radius: 50%;
+    overflow:hidden;
+    
+}
+.contentCard{
+    flex-direction: column;
+    gap: 0!important;
+    width: 65% !important;
+    align-items: flex-start !important;
 }
