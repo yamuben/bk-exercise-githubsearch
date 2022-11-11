@@ -11,5 +11,7 @@ export const getAllUsersAction = (usernameSearch:any,page?:number) => async (dis
         dispatch(userActions.setIsFetching(false));
     } catch (error) {
         console.log("Error: " + error)
+        dispatch(userActions.setUsers({}));
+        dispatch(userActions.setIsFetching(false));
     }
 };
