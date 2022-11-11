@@ -1,10 +1,11 @@
 import axios from "axios";
-import "dotenv/config"
+import { BASE_URL } from "../../assets/constants";
+// import "dotenv/config"
 
-export const getUsersService = async (data:any) => {
+export const getUsersService = async (data: any,page?:number) => {
   try {
-      const res = await axios.post(`${process.env.BASE_URL}/search/users?q=${data}`,data);
-      return res;
+    const res = await axios.get(`${BASE_URL}/search/users?q=${data}&per_page=30&page=${page||1}`);
+    return res;
   } catch (err) {
     console.log("error: ", err);
   }

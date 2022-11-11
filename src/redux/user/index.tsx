@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { truncate } from "fs/promises";
 
 const userSlice = createSlice({
   name: "gitUsers",
   initialState: {
     users: null,
     count: null,
+    page: null,
+    search: null,
     selectedUser: null,
     isFetching: false,
   },
@@ -13,6 +14,12 @@ const userSlice = createSlice({
     setUsers(state, action) {
       state.users = action.payload?.items;
       state.count = action.payload?.total_count;
+    },
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+    setSearch(state, action) {
+      state.page = action.payload;
     },
     setSelectedUser(state, action) {
       state.selectedUser = action.payload;
