@@ -21,6 +21,11 @@ const SearchComponent = (props: any) => {
           { searchText, done: Date.now() },
         ]);
   };
+  const keyPress=(e:any)=>{
+    if(e.keyCode === 13){
+      handleSubmit();
+    }
+ }
   useEffect(() => {
     search &&  handleSubmit();
   }, []);
@@ -32,6 +37,7 @@ const SearchComponent = (props: any) => {
         placeholder="Search User..."
         name="search"
         value={searchText}
+        onKeyDown={keyPress}
         required
         onChange={(e: any) => setSearchText(e.target.value)}
       />
