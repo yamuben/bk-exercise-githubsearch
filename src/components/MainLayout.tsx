@@ -21,7 +21,7 @@ const MainLayoutComponent = (props: any) => {
       >
         {props.children}
       </div>
-      <HeaderComponent />
+      <div className={styles.headerContainer}></div>
     </div>
   );
 };
