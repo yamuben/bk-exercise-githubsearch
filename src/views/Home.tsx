@@ -8,16 +8,17 @@ import { userActions } from "../redux/user";
 import { getAllUsersAction } from "../redux/user/actions";
 import FullProfile from "../components/FullProfile";
 
-
 import { Drawer, Pagination, Paper } from "@mui/material";
 const ViewComponent = (props: any) => {
   const dispatch = useDispatch();
   const { isFetching, users, count } = useSelector((state: any) => state.user);
   const [searchText, setSearchText] = useState();
   const [selectedPage, setSelectedPage] = useState(1);
-  const [drawerVisible, setDrawerVisible] = useState(true);
+  const [selectedUser, setSelectedUser] = useState({});
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const handlePage = (event: any, value: number) => {
     console.log(value);
+
     setSelectedPage(value);
     dispatch(userActions.setPage(value));
     getAllUsersAction(searchText, value)(dispatch);
@@ -28,9 +29,8 @@ const ViewComponent = (props: any) => {
         anchor={"right"}
         open={drawerVisible}
         onClose={() => setDrawerVisible(false)}
-        
       >
-        <FullProfile/>
+        <FullProfile user={selectedUser} />
       </Drawer>
       <div className={styles.centerItems}>
         <SearchComponent setSearchText={setSearchText} />
@@ -45,12 +45,19 @@ const ViewComponent = (props: any) => {
             </h2>
             <div className={styles.resultContainer}>
               {users.map((user: any) => (
-                <Paper  elevation={6} >
-                  <UserProfile data={user} setDrawerVisible={setDrawerVisible}/>
+                <Paper elevation={6} onClick={() => setSelectedUser(user)}>
+                  <UserProfile
+                    data={user}
+                    setDrawerVisible={setDrawerVisible}
+                  />
                 </Paper>
               ))}
             </div>
-            <Paper elevation={3}  className={styles.centerItems} sx={{ minWidth: "50%" }}>
+            <Paper
+              elevation={3}
+              className={styles.centerItems}
+              sx={{ minWidth: "50%" }}
+            >
               <Pagination
                 onChange={handlePage}
                 count={Math.ceil(count / 30)}

@@ -7,8 +7,9 @@ const userSlice = createSlice({
     count: null,
     page: null,
     search: null,
-    selectedUser: null,
+    selectedUser: { profile: {}, repositories: [] },
     isFetching: false,
+    isFetchingProfile: false,
   },
   reducers: {
     setUsers(state, action) {
@@ -26,6 +27,14 @@ const userSlice = createSlice({
     },
     setIsFetching(state, action) {
       state.isFetching = action.payload;
+    },
+    setIsFetchingProfile(state, action) {
+      state.isFetchingProfile = action.payload;
+    },
+    resetState(state, action) {
+      state.users = action.payload.users;
+      state.count = action.payload.count;
+      state.selectedUser = action.payload.selectedUser;
     },
   },
 });

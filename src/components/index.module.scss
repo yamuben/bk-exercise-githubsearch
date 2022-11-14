@@ -95,10 +95,11 @@ h3 {
   cursor: pointer;
 }
 .fullProfileCard {
-  max-width: 50rem;
-  min-width: 30rem;
+  width: 50rem;
+  // min-width: 30rem;
   min-height: 50rem;
   gap:0.5rem !important;
+  padding: 1rem;
 
 }
 a{
@@ -106,4 +107,9 @@ a{
 }
 .icons{
  size: 5rem;
+}
+
+li{
+  color:rgb(8, 0, 61);
+  font-weight: 300;
 }

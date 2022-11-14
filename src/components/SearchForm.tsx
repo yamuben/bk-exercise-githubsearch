@@ -1,27 +1,41 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import store from "store";
 import styles from "./index.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllUsersAction } from "../redux/user/actions";
 
+import { useParams } from "react-router-dom";
 const SearchComponent = (props: any) => {
   const dispatch = useDispatch();
-  const [searchText, setSearchText] = useState();
+
+  const { search } = useParams();
+  const [searchText, setSearchText] = useState(search);
   const handleSubmit = () => {
     props.setSearchText(searchText);
-    getAllUsersAction(searchText)(dispatch);
-  };
 
+    getAllUsersAction(searchText)(dispatch);
+    !store.get("history")
+      ? store.set("history", [{ searchText, done: Date.now() }])
+      : store.set("history", [
+          ...store.get("history"),
+          { searchText, done: Date.now() },
+        ]);
+  };
+  useEffect(() => {
+    search &&  handleSubmit();
+  }, []);
   return (
     <div className={styles.searchContainer}>
       {/* <form> */}
-        <input
-          type="text"
-          placeholder="Search User..."
-          name="search"
-          required
-          onChange={(e: any) => setSearchText(e.target.value)}
-        />
-        <button onClick={handleSubmit}>Search</button>
+      <input
+        type="text"
+        placeholder="Search User..."
+        name="search"
+        value={searchText}
+        required
+        onChange={(e: any) => setSearchText(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Search</button>
       {/* </form> */}
     </div>
   );
