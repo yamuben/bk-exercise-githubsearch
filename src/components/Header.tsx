@@ -43,7 +43,7 @@ const HeaderComponent = (props: any) => {
             aria-label="nav tabs example"
             variant="fullWidth"
             indicatorColor="primary"
-            textColor="secondary"
+            textColor="inherit"
           >
             <Tab
               label="Home"
