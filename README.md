@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# Getting Started with Installing GitHub username searcher
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was deeveloped by Iyamuremye Benjamin 
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+to install all project packages 
+
+Then run: 
 
 ### `npm start`
 
